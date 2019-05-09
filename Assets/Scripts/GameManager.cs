@@ -5,9 +5,21 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject cannonPrefab;
+    [SerializeField]
+    private GameObject cannonSpawn;
+
+    private GameObject cannonInstance;
+
+    private enum GameState { MainMenu, Settings, Play, Pause};
+
+    private GameState currentState;
+
     private void Awake()
     {
         BallDropperManager.GameManager = this;
+        currentState = GameState.MainMenu;
     }
 
     void Start()
@@ -19,5 +31,13 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void StartPlay()
+    {
+        cannonPrefab = Instantiate(cannonPrefab, cannonSpawn.transform);
+        currentState = GameState.MainMenu;
+        BallDropperManager.UIManager.HideMainMenu();
+        BallDropperManager.UIManager.ShowPlay();
     }
 }

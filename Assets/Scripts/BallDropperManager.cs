@@ -61,6 +61,20 @@ namespace BallDropper
             }
             set { saveManager = value; }
         }
+
+        private static PlayerController player;
+        public static PlayerController Player
+        {
+            get
+            {
+                if (player == null)
+                {
+                    Debug.Log("PlayerController doesn't exist!");
+                }
+                return player;
+            }
+            set { player = value; }
+        }
     }
 }
 
