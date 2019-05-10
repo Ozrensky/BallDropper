@@ -44,6 +44,12 @@ public class UIManager : MonoBehaviour
         playPanel.SetActive(false);
     }
 
+    public GameObject GetPlayPanel()
+    {
+        return playPanel;
+    }
+    
+
     public void ShowMainMenu()
     {
         mainMenuPanel.SetActive(true);
